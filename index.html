@@ -1,0 +1,166 @@
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style> 
+
+      .leftClick {
+        left: 0;
+      }
+
+      .rightClick {
+        right: 0;
+      }
+      
+      .rightClick,
+      .leftClick {
+        position: absolute; 
+        font-size: 36px;
+        position: absolute; 
+        cursor: pointer;
+        color: tomato;
+      }
+
+      .Company-list-box,
+      .flex {
+        padding-right: 0;
+        display: flex;
+        flex-direction: row;   
+        flex: 1 0 auto;
+      }
+
+      .partner-buttons,
+      .nonpartner-buttons {
+        width: 100%;
+        top: 50%;
+        position: absolute;
+      }
+
+      .partner-wrapper,
+      .nonpartner-wrapper {
+        position: relative;
+        width: 100%;
+      }
+
+      .partner,
+      .nonpartner {
+        overflow: auto;
+        height: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+      }
+
+      .inner {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-content: stretch;
+        min-height: 414px;
+        background-color: #fff;
+        padding: 7px 4px;
+        border: 1px solid black;
+        width: 100%;
+        font-size: 20px;
+        font-weight: 400;
+        padding-top: 80px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      
+      <div class="partner-wrapper">
+        <h3>Partner</h3>
+        <div class="partner row flex">
+          <div class="col-xs-12 col-md-4 form-group Company-list-box">
+            <div class="inner">
+              ANOTHER JOB
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4 form-group Company-list-box">
+            <div class="inner">
+              JOB
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4 form-group Company-list-box">
+            <div class="inner">
+              A JOB
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4 form-group Company-list-box">
+            <div class="inner">
+              COOL JOB
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4 form-group Company-list-box">
+            <div class="inner">
+              <p>You've reached the end!</p>
+              <a href="#">See all</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="partner-buttons">  
+          <span class="glyphicon glyphicon-menu-right rightClick" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-menu-left leftClick" aria-hidden="true"></span>
+        </div>
+      </div>
+  
+      <div class="nonpartner-wrapper">
+        <h3>Non-Partner</h3>
+        <div class="nonpartner row flex">
+          <div class="col-xs-12 col-md-4 form-group Company-list-box">
+            <div class="inner">
+              SOME JOB
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4 form-group Company-list-box">
+            <div class="inner">
+              BIG JOB
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4 form-group Company-list-box">
+            <div class="inner">
+              JOB
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4 form-group Company-list-box">
+            <div class="inner">
+              A JOB
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4 form-group Company-list-box">
+            <div class="inner">
+            </div>
+          </div>
+        </div>
+
+        <div class="nonpartner-buttons">  
+          <span class="glyphicon glyphicon-menu-right rightClick" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-menu-left leftClick" aria-hidden="true"></span>
+        </div>
+      </div>
+      
+    </div> <!-- container-fluid -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+      
+      let scrolled = 0;
+      $(document).ready(() => {
+      
+        $(".rightClick").on("click", (evt) => {
+          scrolled += 300;
+          let el = evt.target.parentElement.previousElementSibling;
+          $(el).scrollLeft(scrolled);
+        });
+        
+        $(".leftClick").on("click", (evt) => {
+          scrolled -= 300;
+          let el = evt.target.parentElement.previousElementSibling;
+          $(el).scrollLeft(scrolled);
+        });
+      });
+    </script>
+  </body>
+</html>
